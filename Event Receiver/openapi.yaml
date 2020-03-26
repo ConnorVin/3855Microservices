@@ -1,0 +1,105 @@
+swagger: '2.0'
+info:
+  description: This is an API to record swim meet times
+  version: 1.0.0
+  title: Swim Meet API
+
+paths:
+  /report/race:
+    post:
+      summary: reports race information
+      operationId: app.add_race_information
+      description: Stores race information
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: report
+        description: Atheletes and Race information
+        schema:
+          $ref: '#/definitions/RaceInformation'
+      responses:
+        200:
+          description: race added
+        400:
+          description: invalid input, object invalid
+        
+          
+          
+  /report/athlete:
+    post:
+      summary: reports athlete information
+      operationId: app.add_athlete_information
+      description: Stores athlete information
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: report
+        description: Athlete information
+        schema:
+          $ref: '#/definitions/AthleteInformation'
+      responses:
+        200:
+          description: athlete added
+        400:
+          description: invalid input, object invalid
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AthleteInformation'
+        400:
+          description: bad input parameter
+          
+definitions:
+  RaceInformation:
+    type: object
+    required:
+    - race_id
+    - swim
+    - distance
+    - distance_measurement
+    properties:
+      race_id:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      swim:
+        type: string
+        example: Freestyle
+      distance:
+        type: integer
+        example: 400
+      distance_measurement:
+        type: string
+        example: meters
+  AthleteInformation:
+    required:
+    - first_name
+    - last_name
+    - age
+    - height
+    - weight
+    properties:
+      first_name:
+        type: string
+        example: Carson
+      last_name:
+        type: string
+        example: Olafson
+      age:
+        type: integer
+        example: 22
+      height:
+        type: integer
+        example: 190
+      weight:
+        type: integer
+        example: 181

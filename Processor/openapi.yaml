@@ -1,0 +1,40 @@
+swagger: '2.0'
+info:
+  description: This is an API to record swim meet times
+  version: 1.0.0
+  title: Swim Meet API
+
+paths:
+  /report/stats:
+    get:
+      summary: recieves swim stats
+      operationId: app.get_statistics
+      description: Gets stored swim stats
+      produces:
+      - application/json
+      responses:
+        200:
+          description: current stats
+          schema:
+            $ref: '#/definitions/SwimStats'
+        404:
+          description: stats do not exist
+          
+definitions:
+  SwimStats:
+    type: object
+    required:
+    - num_athlete_stats
+    - num_swim_stats
+    - updated_timestamp
+    properties:
+      num_athlete_readings:
+        type: integer
+        example: 1023
+      num_pulse_readings:
+        type: integer
+        example: 1023
+      updated_timestamp:
+        type: string
+        format: date-time
+        example: 2016-08-29T09:12.33

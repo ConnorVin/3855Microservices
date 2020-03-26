@@ -1,0 +1,4 @@
+version: 1
+kafka-server: localhost
+kafka-port: 9092
+topic: events
