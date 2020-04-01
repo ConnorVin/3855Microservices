@@ -1,4 +1,4 @@
 version: 1
-kafka-server: docker-3855.eastus.cloudapp.azure.com
+kafka-server: docker-group12.westus2.cloudapp.azure.com
 kafka-port: 9092
 topic: events

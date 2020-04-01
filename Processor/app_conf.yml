@@ -4,4 +4,4 @@ datastore:
 scheduler:
   period_sec: 5
 eventstore:
-  uri: http://docker-3855.eastus.cloudapp.azure.com:8090
+  uri: http://docker-group12.westus2.cloudapp.azure.com:8090
